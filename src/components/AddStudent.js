@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -29,6 +28,7 @@ class AddStudent extends Component{
       }
       handleAdd = () => {
         this.props.addStudent(this.state.name,this.state.email);
+        console.log(this.state.name + " " + this.state.email);
         this.handleClose();
       }
     render()  {
