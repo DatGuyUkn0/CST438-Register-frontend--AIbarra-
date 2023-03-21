@@ -25,33 +25,8 @@ class Semester extends Component {
     console.log("Semester.onRadioClick "+JSON.stringify(event.target.value));
     this.setState({selected: event.target.value});
   }
-  addStudent = (name,email) => {
-    const token = Cookies.get('XSRF-TOKEN');
 
-    fetch(`${SERVER_URL}student`,
-      {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json', 'X-XRSF-TOKEN': token  },
-        body: JSON.stringify({name,email})
-      })
-      .then(res => {
-        if(res.ok) {
-          toast.success("Student successfully added", {
-              position: toast.POSITION.BOTTOM_LEFT
-          });
-        } else {
-          toast.error("Error when adding", {
-              position: toast.POSITION.BOTTOM_LEFT
-          });
-          console.error('Post http status =' + res.status);
-        }})
-      .catch(err =>{
-        toast.error("Error when adding", {
-            position: toast.POSITION.BOTTOM_LEFT
-        });
-        console.error(err);
-      })
-  }
+
   
   render() {    
       const icolumns = [
@@ -95,9 +70,9 @@ class Semester extends Component {
                 variant="outlined" color="primary" style={{margin: 10}}>
                 Get Schedule
               </Button>
-              <ButtonGroup>
-                <AddStudent addStudent={this.addStudent}/>
-              </ButtonGroup>
+              <Button component={Link} to={{pathname:'/student'}}variant="outlined" color='primary' style={{margin: 10}} onClick={this.handleClickOpen}>
+                    Add Student
+                </Button>
           </div>
       </div>
     )
