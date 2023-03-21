@@ -49,8 +49,7 @@ class AddStudent extends Component{
                         <Button color="secondary" onClick={this.handleClose}>
                             Cancel
                         </Button>
-                        <Button component={Link}
-                                to={{pathname:'/student' ,name:this.state.name,email:this.state.email}} variant="outlined" color="primary" style={{margin: 10}}>
+                        <Button color="primary" onClick={this.handleAdd}>
                             Add Student
                         </Button>                    
                     </DialogActions>
