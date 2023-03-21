@@ -32,7 +32,7 @@ class Semester extends Component {
       {
         method: 'POST',
         headers: {'Content-Type': 'application/json', 'X-XRSF-TOKEN': token  },
-        body: JSON.stringify(name,email)
+        body: JSON.stringify({name,email})
       })
       .then(res => {
         if(res.ok) {
