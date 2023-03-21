@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 import {SERVER_URL} from '../constants.js'
@@ -62,7 +62,7 @@ class Semester extends Component {
         renderCell: (params) => (
           <div>
             <Radio
-              checked={params.row.id == this.state.selected}
+              checked={params.row.id === this.state.selected}
               onChange={this.onRadioClick}
               value={params.row.id}
               color="default"
