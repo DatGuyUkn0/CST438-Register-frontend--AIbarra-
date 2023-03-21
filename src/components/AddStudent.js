@@ -63,7 +63,7 @@ class AddStudent extends Component{
 
 }
     AddStudent.propTypes = {
-    addCourse : PropTypes.func.isRequired
+    addStudent : PropTypes.func.isRequired
     }
 
 export default AddStudent;
