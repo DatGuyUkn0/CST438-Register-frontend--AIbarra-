@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField';
 class AddStudent extends Component{
     constructor(props) {
         super(props);
-        this.state = {open: false, name:{ }, email:{ }};
+        this.state = {open: false, email:{ }, name:{ }};
       };
 
       handleClickOpen = () => {
@@ -28,7 +28,7 @@ class AddStudent extends Component{
       }
       handleAdd = () => {
         this.props.addStudent(this.state.name,this.state.email);
-        console.log(this.state.name + " " + this.state.email);
+        console.log(this.state.name + " space " + this.state.email);
         this.handleClose();
       }
     render()  {
