@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Cookies from 'js-cookie';
+import {SERVER_URL} from '../constants.js'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import Radio from '@mui/material/Radio';
 import {DataGrid} from '@mui/x-data-grid';
 import {SEMESTER_LIST} from '../constants.js'
@@ -19,6 +24,33 @@ class Semester extends Component {
    onRadioClick = (event) => {
     console.log("Semester.onRadioClick "+JSON.stringify(event.target.value));
     this.setState({selected: event.target.value});
+  }
+  addStudent = (name,email) => {
+    const token = Cookies.get('XSRF-TOKEN');
+
+    fetch(`${SERVER_URL}/student`,
+      {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'X-XRSF-TOKEN': token  },
+        body: JSON.stringify(name,email)
+      })
+      .then(res => {
+        if(res.ok) {
+          toast.success("Student successfully added", {
+              position: toast.POSITION.BOTTOM_LEFT
+          });
+        } else {
+          toast.error("Error when adding", {
+              position: toast.POSITION.BOTTOM_LEFT
+          });
+          console.error('Post http status =' + res.status);
+        }})
+      .catch(err =>{
+        toast.error("Error when adding", {
+            position: toast.POSITION.BOTTOM_LEFT
+        });
+        console.error(err);
+      })
   }
   
   render() {    
