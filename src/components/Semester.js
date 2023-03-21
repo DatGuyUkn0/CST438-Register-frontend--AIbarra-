@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Cookies from 'js-cookie';
-import {SERVER_URL} from '../constants.js'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import Radio from '@mui/material/Radio';
 import {DataGrid} from '@mui/x-data-grid';
 import {SEMESTER_LIST} from '../constants.js'
-import AddStudent from './AddStudent.js';
 
 // user selects from a list of  (year, semester) values
 class Semester extends Component {
