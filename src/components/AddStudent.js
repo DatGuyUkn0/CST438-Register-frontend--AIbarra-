@@ -28,7 +28,7 @@ class AddStudent extends Component{
         this.setState({email:{student_email: event.target.value}});
       }
       handleAdd = () => {
-        this.props.AddStudent(this.state.name,this.state.email);
+        this.props.addStudent(this.state.name,this.state.email);
         this.handleClose();
       }
     render()  {
