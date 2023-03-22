@@ -14,14 +14,18 @@ class AddStudent extends Component{
         super(props);
         this.state = {email: '', name:''};
       };
-
+      //assigns name
       handleChange_name = (event) => {
-        this.setState({name:{student_name: event.target.value}});
+        this.setState({name: event.target.value});
+        console.log(this.state.name);
       }
+      //assigns email
       handleChange_email = (event) => {
-        this.setState({email:{student_email: event.target.value}});
+        this.setState({email: event.target.value});
+        console.log(this.state.email);
       }
 
+      //Adds student
       handleAdd = () => {
         console.log(this.state.name + " space " + this.state.email);
 
@@ -32,7 +36,7 @@ class AddStudent extends Component{
           method: 'POST',
           headers: {'Content-Type': 'application/json', 'X-XRSF-TOKEN': token  },
           body: JSON.stringify({email: this.state.email, name: this.state.name})
-        })
+        } )
         .then(res => {
           if(res.ok) {
             toast.success("Student successfully added", {
@@ -82,8 +86,4 @@ class AddStudent extends Component{
 
 
 }
-    AddStudent.propTypes = {
-    addStudent : PropTypes.func.isRequired
-    }
-
 export default AddStudent;
