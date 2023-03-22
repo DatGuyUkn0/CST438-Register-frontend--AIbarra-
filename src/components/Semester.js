@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -14,12 +16,11 @@ class Semester extends Component {
       super(props);
       this.state = {selected: SEMESTER_LIST.length-1 };
     }
- 
-   onRadioClick = (event) => {
+    onRadioClick = (event) => {
     console.log("Semester.onRadioClick "+JSON.stringify(event.target.value));
     this.setState({selected: event.target.value});
-  }
-  
+    }
+
   render() {    
       const icolumns = [
       {
@@ -29,7 +30,7 @@ class Semester extends Component {
         renderCell: (params) => (
           <div>
             <Radio
-              checked={params.row.id == this.state.selected}
+              checked={params.row.id === this.state.selected}
               onChange={this.onRadioClick}
               value={params.row.id}
               color="default"
@@ -62,6 +63,9 @@ class Semester extends Component {
                 variant="outlined" color="primary" style={{margin: 10}}>
                 Get Schedule
               </Button>
+              <Button component={Link} to={{pathname:'/student'}}variant="outlined" color='primary' style={{margin: 10}} onClick={this.handleClickOpen}>
+                    Add Student
+                </Button>
           </div>
       </div>
     )
