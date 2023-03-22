@@ -68,7 +68,7 @@ class AddStudent extends Component{
         <div>
             <TextField position="center" style={{marginTop: 15}} label="Student Email" name="student_email" onChange={this.handleChange_email}  />
         </div>
-        <div position="center">
+        <div position="center" style={{marginTop: 10}}>
             <Button variant="outlined" style={{marginRight: 10}} color="secondary" onClick={this.handleClose}>
                 Cancel
             </Button>
