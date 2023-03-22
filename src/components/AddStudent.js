@@ -63,14 +63,14 @@ class AddStudent extends Component{
             </Toolbar>
          </AppBar>
 
-        <TextField autoFocus fullWidth label="Student Name" name="student_name" onChange={this.handleChange_name}  />
+        <TextField autoFocus style={{marginTop: 15}} label="Student Name" name="student_name" onChange={this.handleChange_name}  />
 
-        <TextField autoFocus fullWidth label="Student Email" name="student_email" onChange={this.handleChange_email}  />
+        <TextField autoFocus style={{marginTop: 15}} label="Student Email" name="student_email" onChange={this.handleChange_email}  />
 
-        <Button color="secondary" onClick={this.handleClose}>
+        <Button variant="outlined" color="secondary" onClick={this.handleClose}>
             Cancel
         </Button>
-        <Button color="primary" onClick={this.handleAdd}>
+        <Button variant="outlined" color="primary" onClick={this.handleAdd}>
             Add
         </Button>                    
 
