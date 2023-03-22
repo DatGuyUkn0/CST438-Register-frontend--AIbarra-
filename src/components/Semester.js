@@ -16,14 +16,11 @@ class Semester extends Component {
       super(props);
       this.state = {selected: SEMESTER_LIST.length-1 };
     }
- 
-   onRadioClick = (event) => {
+    onRadioClick = (event) => {
     console.log("Semester.onRadioClick "+JSON.stringify(event.target.value));
     this.setState({selected: event.target.value});
-  }
+    }
 
-
-  
   render() {    
       const icolumns = [
       {

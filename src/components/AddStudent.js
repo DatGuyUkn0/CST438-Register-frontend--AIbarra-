@@ -24,13 +24,10 @@ class AddStudent extends Component{
         this.setState({email: event.target.value});
         console.log(this.state.email);
       }
-
       //Adds student
       handleAdd = () => {
         console.log(this.state.name + " space " + this.state.email);
-
         const token = Cookies.get('XSRF-TOKEN');
-
         fetch(`${SERVER_URL}/student`,
         {
             method: 'POST',
@@ -40,7 +37,7 @@ class AddStudent extends Component{
                 email: this.state.email, 
                 name: this.state.name
             })
-        })
+        })//  the following if statement helps visually confirm the outcome of the attempt to add a student
         .then(res => {
           if(res.ok) {
             toast.success("Student successfully added", {
@@ -59,7 +56,7 @@ class AddStudent extends Component{
           console.error(err);
         })
       }
-
+      //Methods to display element of /student
     render()  {
         return(
             <div>
